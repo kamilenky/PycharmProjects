@@ -18,7 +18,7 @@
 # Bonusový úkol (Pokud ho nebudete mít hotový, nebude to mít vliv na váš celkový výsledek, body za něj nebudou odečítány.):
 # Při zadání špatného datového typu se program neukonči, ale vyzve uživatele o nové zadání hodnoty.
 #from kod import employee
-#
+# testing git and git push
 
 basic_fare = 45
 price = basic_fare
