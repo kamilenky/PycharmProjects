@@ -1,33 +1,29 @@
-numbers = [1, 2, 4, -6, 7, 8, 100, -125, 11, 123]
-names = ["Petr", "Ales", "Honza", "Lenka", "Andrea", "Alice"]
-random_codes = ["1-okdsaaa", "0-nFnldd", "0-AA", "0-uwqqq", "2-ZSTh", "0-RKOcsxxx", "1-LwWtss", "0-cdKiddd", "2-KpAAaa", "3-sOdSxhcds"]
+# Napiš program, který bude pracovat s informacemi o uživatelském účtu: username, age, email
 #
-# # # # 1. pomocí cyklu for vypište čísla ze seznamu numbers, ale přeskočte záporná čísla.
-negative_numbers = [n for n in numbers if n > 0]
-print(negative_numbers)
-
-# # # 2. pomocí cyklu while vypište všechna jména, pokud narazíš na jméno 'Alice' cyklus ukonči
-while True:
-    user_input = input("List names: y/n: ").lower()
-    if user_input == "y":
-        for name in names:
-            print(name)
-
-
-    elif user_input == "n":
-            print("Ok")
-            exit()
-
-# # moznost 2:
-# # n = 0
-# # while n < len(names):
-# #     print(names[n])
-# #     if names[n] == "Alice":
-# #         break
-# #     n += 1
-
-# # 3. pomocí list comprehension vytvoř nový list, který bude obsahovat pouze prvky z 'random_codes', které obsahují 0
-new_list_random_codes = [x for x in random_codes if "0" in x]
-print(new_list_random_codes)
-
-# Dobrovolny ukol pro pokrocile (nebude bodovan): Vypis všechny pod-seznamy s alespoň třemi po sobě jdoucími stejnými znaky v seznamu 'random_codes'
+#
+# Vytvoř následující funkce:
+#
+# is_adult: Funkce ověří zda je uživatel dospělý
+# is_name_valid: Funkce ověří zda uživatelské jméno je alespoň 4 znaky dlouhé
+# create_user:
+#
+#       Funkce vytvoří slovník reprezentujícího uživatele.
+#      Uvnitř funkce zkontroluj, zda je uživatel dospělý a jeho jméno je validní.
+#
+# Pokud je vše v pořádku, create_user vrátí následující slovník:
+# {
+# "success": True,
+# "user": {"username": "...", "age": ..., "email": "..."}
+# }
+#  Pokud validace selže, create_user vrátí:
+# {
+# "success": False,
+# "error": "Chybová zpráva..."
+# }
+#
+#
+# print_user_info: Funkce vytiskne uživatele do konzole s libovolným formátováním, případně vytiskne chybovou zprávu při neúspěšném vytvoření
+#
+# Pomocí metody create_user vytvoř alespoň 4 různé uživatele. Hodnoty si zvol podle sebe přímo v programu.
+#
+# Nakonec vytvořené uživatele vytiskni pomocí cyklu a metody print_user_info.
