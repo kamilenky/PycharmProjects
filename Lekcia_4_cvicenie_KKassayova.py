@@ -80,3 +80,16 @@ elif age >= 65:
 else:
     print("Nespravny udaj. Opakujte volbu.C")
 
+
+
+# Feedback:
+#
+# - pro urceni ceny mas v except bloku, tj. pokud ti program nezachyti vyjimku, nikdy se nevykona.
+#
+# Zda je employee input jen ano nebo ne muzes provest napr:
+# if employee_input in ["ano", "ne"]
+# nebo
+# if employee_input == "ano" or employee_input == "ne"
+#
+# - Mas tam nejaky preklep u employee (radek 34) a na radku 36 pouzivas promennou age, ktera ale neexistuje, definujes ji az pozdeji v kodu (r. 58)
+
