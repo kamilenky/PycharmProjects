@@ -25,13 +25,17 @@ price = basic_fare
 
 print ("Vyberte si typ cestovného listka: \n Dospelý (nad 18 rokov, plna cena) \n Dieta (od 0 do 12 rokov, zadarmo) \n Junior (od 13 do 17 rokov, zľava 50%) \n Senior (nad 65 rokov, zľava 30%) \n Zamestnanec 1 (do 55 rokov, zľava 80%)\n Zamestnanec 2 (nad 55 rokov, zadarmo) ")
 
-
+try:
+    age = int(input("Kolko mate rokov: ").strip())
+except ValueError:
+    print("Nespravny udaj. Opakujte volbu.B")
+    age = None
 
 try:
     employee = str(input("Ste zamestnanec MHD? ano/nie: ").strip().lower())
 except ValueError:
     print("Nespravny udaj. Opakujte volbu A.")
-    emolyee != "ano", "nie"
+    emoloyee in ["ano", "nie"]
     if employee == "ano":
         if age >= 55:
             price = 0
@@ -54,11 +58,11 @@ except ValueError:
 #   break
 
 
-try:
-    age = int(input("Kolko mate rokov: ").strip())
-except ValueError:
-    print("Nespravny udaj. Opakujte volbu.B")
-    age = None
+# try:
+#     age = int(input("Kolko mate rokov: ").strip())
+# except ValueError:
+#     print("Nespravny udaj. Opakujte volbu.B")
+#     age = None
 #otazka: ako v tomto bode spustim program odznovu?
 
 if age <= 12:
