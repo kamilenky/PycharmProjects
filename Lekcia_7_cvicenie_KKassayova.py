@@ -29,122 +29,41 @@
 # Nakonec vytvořené uživatele vytiskni pomocí cyklu a metody print_user_info.
 
 
-# input
-def choose_username() -> str:
-    for _ in range(1):
-        while True:
-            user_name = input("Please, choose your user name (at lesat 4 characters): ")
-            if len(user_name) >= 4:
-                # yield user_name
-                # break
-            else:
-                print("User name must be at least 4 characters long.")
 
-usernames = list(choose_username())
+def is_name_valid(username: str) -> bool:
+    return len(username) >= 4
 
-print("usernames:")
-print(usernames)
+def is_adult (age: int) -> bool:
+    return age >= 18
 
-# input
+def create_user(username: str, age: int) -> dict:
+    if not is_name_valid(username):
+        return {
+            "success": False,
+            "error": "The username must be at least 4 characters long. Please. enter your name again."
+        }
 
-def is_adult (valid_age, minimum_age=17) -> bool:
-    valid_age = int(input("Please, add your age: "))
-    return valid_age > minimum_age
+    if not is_adult(age):
+        return {
+            "success": False,
+            "error": "The minimum age must be 18 years. Please. enter your age again."
+        }
+    return {
+            "success": True,
+            "user": {"username": username, "age": age, "email": f"{username.lower()}@gmail.com"}
+    }
+def print_user_info(result: dict) -> None:
+    if result["success"]:
+        u = result["user"]
+        print(f"Your account has been created. Username: {u['username']}, Email: {u['email']}")
+    else:
+        print(f"Error: {result['error']}")
 
-upravit cez loop? vratit 4 x user name?
+users =  [{"username": "Adam", "age": 18},
+{"username": "Brano", "age": 17},
+{"username": "Cyril", "age": 20},
+{"username": "Dan", "age": 21}]
 
-
-# def create_user(0)
-
-def create_user(
-
-        return is_adult, is_name_valid
-        if statements
-        is_name_valid==True + is_adult==True > slovnik
-
-        else exceptions
-)
-
-#exceptions
-try:
-    def is_name_valid
-        if min_lenght== False
-except ValueError:
-    print("Minimum user name lenghth is 4 characters")
-
-try:
-    def is_adult
-        if minimum_age== False
-except ValueError:
-    print("Minimum age must be 18 years old.")
-
-
-def print_user_info(print_user, str):
-    print("Hello  ", print_user)
-
-def print_email_info(print_email, str):
-    print("Your email account ", print_email, "has been created.")
-
-
-
-def get_numbers () -> tuple [int, str]:
-    return int, "str"
-
-def work() ->
-    x,y = def_int ()
-    def_str("abc")
-    print(def3())
-
-work()
-
-
-yield
-
-
-
-#
-# is_adult(valid_age)
-
-
-
-
-
-# input username
-
-# def greet_user(name: str) -> None:
-#     print("Hello ", name)
-#
-# greet_user("Jano")
-#
-
-
-#
-# # input email
-# # input vek
-#
-# def age (input_age): -> int
-#     print (f"What is your age?: ".lower() (input_age)
-#
-# age ("What is your age?: ".lower(), age_input)
-# age_input  = input ("What is your age?: ").lower()
-# print(age_input)
-# def is_adult  -> int:
-#     x = age_input
-#
-#     return x >= 18
-# print
-
-# age validation
-# usename validation
-
-# create user 4x
-# check dictionary
-
-# print: users <> eroor message
-#
-#
-# from my_package.new import add
-# from my_package import new
-#
-# res = new.add(6, 6)
-# print(res)
+for user in users:
+    result = create_user(user["username"], user["age"])
+    print_user_info(result)
