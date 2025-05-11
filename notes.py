@@ -62,3 +62,30 @@ job_title_1.AssignJobClassification()
 job_title_1.AssignWorkingHours()
 job_title_2.AssignJobClassification()
 job_title_2.AssignWorkingHours()
+
+# amendement requirements
+class Requirements:
+    def __init__(self, reasons: list) -> None:
+        self.reasons = reasons
+
+class JobTenureProlonged:
+    def __init__(self, prolonged_tenure: str, days: int) -> None:
+        self.prolonged_tenure = prolonged_tenure
+        self.days = days
+
+class JobTenureShortened:
+    def __init__(self, shortened_tenure:str, days: int) -> None:
+        self.shortened_tenure = shortened_tenure
+        self.days = days
+
+
+reasons = [
+    JobTenureProlonged(prolonged_tenure="ospravedlnená neprítomnosť zamestnanca", days=5),
+    JobTenureProlonged(prolonged_tenure="neospravedlnená neprítomnosť zamestnanca", days=1),
+    JobTenureProlonged(prolonged_tenure="výkon mimoriadnej služby", days=1),
+    JobTenureProlonged(prolonged_tenure="výkon väzby alebo nepodmienečného trestu odňatia slobody", days=0),
+    JobTenureShortened(shortened_tenure="zamestnanec je preradený na inú pracovnú pozíciu", days=30)
+]
+
+requirements = Requirements(reasons=reasons)
+print(requirements)
