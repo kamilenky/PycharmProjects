@@ -67,10 +67,10 @@ created_users = []
 for i in range(4):
     name_input = input("Please, choose a username: ")
 
-try:
-    age_input = int(input("Please, enter your age: "))
-except ValueError:
-    print("The age must be a number.")
+    try:
+        age_input = int(input("Please, enter your age: "))
+    except ValueError:
+        print("The age must be a number.")
 
 
 result = create_user(name_input, age_input)
