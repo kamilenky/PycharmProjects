@@ -33,10 +33,10 @@
 
 # functions
 def is_name_valid(username, min_length=4) -> bool:
-    return len(username) > min_length
+    return len(username) >= min_length
 
 def is_adult (age, minimum_age=18) -> bool:
-    return age > minimum_age
+    return age >= minimum_age
 
 def create_user(username: str, age: int) -> dict:
     if not is_name_valid(username):
@@ -51,8 +51,10 @@ def create_user(username: str, age: int) -> dict:
             "error": "The minimum age must be 18 years. Please. enter your age again."
         }
     return {
-            "success": True,
-            "user": {"username": username, "age": age, "email": f"{username.lower()}@gmail.com"}
+        "success": True,
+        "user": {"username": username,
+                 "age": age,
+                 "email": f"{username.lower()}@gmail.com"}
     }
 
 def print_user_info(result: dict) -> None:
@@ -64,6 +66,7 @@ def print_user_info(result: dict) -> None:
 
 
 created_users = []
+
 for i in range(4):
     name_input = input("Please, choose a username: ")
 
@@ -71,14 +74,16 @@ for i in range(4):
         age_input = int(input("Please, enter your age: "))
     except ValueError:
         print("The age must be a number.")
+        continue
+
+    result = create_user(name_input, age_input)
+
+    if result["success"]:
+        created_users.append(result)
+
+    print_user_info(result)
 
 
-result = create_user(name_input, age_input)
-created_users.append(result)
-
-
-for u in created_users:
-    print_user_info(u)
 
 
 
