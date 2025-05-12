@@ -76,6 +76,7 @@ for i in range(4):
         print("The age must be a number.")
         continue
 
+
     result = create_user(name_input, age_input)
 
     if result["success"]:
