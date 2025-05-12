@@ -1,3 +1,6 @@
+from job_tenure import JobTenureProlonged
+from requirements import Requirements
+
 #formatovanie CTRL+ALT+L
 
 # # L17
@@ -23,70 +26,87 @@
 # # from win32comext.mapi.emsabtags import PR_EMS_AB_LOCAL_INITIAL_TURN
 
 # L11
-class JobClassification:
-    def __init__(self, job_classification: str, working_hours: int) -> None:
-        self.job_classificaiton = job_classification
-        self.working_hours = working_hours
+# class JobClassification:
+#     def __init__(self, id:int, job_classification: str, working_hours: int) -> None:
+#         self.job_classificaiton = job_classification
+#         self.working_hours = working_hours
+#         self.id = id
+#
+#     def AssignJobClassification(self) -> None:
+#         print(f"Pracovné zaradenienie: {self.job_classificaiton}")
+#
+#     def AssignWorkingHours(self) -> None:
+#         print(f"Pracovný uväzok: {self.job.classification}")
 
-    def AssignJobClassification(self) -> None:
-        print(f"Pracovné zaradenienie: {self.job_classificaiton}")
+    # def get_employee_by_id(self, empl_id: int) -> Class
+    #     #method for selecting an employee
+            # musi byt vytvoreny list empployees s id
+        # for e in self.EmployeeId:
+        #     return e
+        empl = requirements.getemployee_by_id(1)
+        req = requirements.get_requirements_by_id(1)
+        print(req.prolonged_tenure, req.id)
 
-    def AssignWorkingHours(self) -> None:
-        print(f"Pracovný uväzok: {self.job.classification}")
-
-
-job_title_1 = JobClassification(job_classification="Sociálny pracovník", working_hours=40)
-job_title_2 = JobClassification(job_classification="Opatrovateľ", working_hours=20)
-print(f"Pracovné zaradenie: {job_title_1.job_classificaiton}")
-print(f"Pracovné zaradenie: {job_title_2.job_classificaiton}")
-job_title_1.AssignJobClassification()
-job_title_2.AssignJobClassification()
-
-
-class JobClassification:
-    def __init__(self, job_classification: str, working_hours: int) -> None:
-        self.job_classificaiton = job_classification
-        self.working_hours = working_hours
-
-    def AssignJobClassification(self) -> None:
-        print(f"Pracovné zaradenienie: {self.job_classificaiton}")
-
-    def AssignWorkingHours(self) -> None:
-        print(f"Pracovný uväzok: {self.working_hours}")
-
-
-job_title_1 = JobClassification(job_classification="Sociálny pracovník", working_hours=40)
-job_title_2 = JobClassification(job_classification="Opatrovateľ", working_hours=20)
-
-job_title_1.AssignJobClassification()
-job_title_1.AssignWorkingHours()
-job_title_2.AssignJobClassification()
-job_title_2.AssignWorkingHours()
-
+#
+#
+# job_title_1 = JobClassification(id=1, job_classification="Sociálny pracovník", working_hours=40)
+# job_title_2 = JobClassification(job_classification="Opatrovateľ", working_hours=20)
+# print(f"Pracovné zaradenie: {job_title_1.job_classificaiton}")
+# print(f"Pracovné zaradenie: {job_title_2.job_classificaiton}")
+# job_title_1.AssignJobClassification()
+# job_title_2.AssignJobClassification()
+#
+#
+# class JobClassification:
+#     def __init__(self, job_classification: str, working_hours: int) -> None:
+#         self.job_classificaiton = job_classification
+#         self.working_hours = working_hours
+#
+#     def AssignJobClassification(self) -> None:
+#         print(f"Pracovné zaradenienie: {self.job_classificaiton}")
+#
+#     def AssignWorkingHours(self) -> None:
+#         print(f"Pracovný uväzok: {self.working_hours}")
+#
+#
+# job_title_1 = JobClassification(job_classification="Sociálny pracovník", working_hours=40)
+# job_title_2 = JobClassification(job_classification="Opatrovateľ", working_hours=20)
+#
+# job_title_1.AssignJobClassification()
+# job_title_1.AssignWorkingHours()
+# job_title_2.AssignJobClassification()
+# job_title_2.AssignWorkingHours()
+#
 # amendement requirements
 
-class JobTenureProlonged:
-    def __init__(self, prolonged_tenure: str, days: int) -> None:
-        self.prolonged_tenure = prolonged_tenure
-        self.days = days
 
-    def set_reason(self) -> None:
-        print(f"Dovod nepritomnosti je {self.prolonged_tenure}")
 
 class Requirements:
+    premenna = 0
     def __init__(self, reasons: list[JobTenureProlonged]) -> None:
         self.reasons = reasons
 
     def list_requirements(self):
         for reason in self.reasons:
             reason.set_reason()
+            Requirements.premenna = z
 
+class JobTenureProlonged:
 
+    def __init__(self, prolonged_tenure: str, days: int) -> None:
+        self.prolonged_tenure = prolonged_tenure
+        self.days = days
+        Requirements.premenna +=1
+
+    def set_reason(self) -> None:
+        print(f"Dovod nepritomnosti je {self.prolonged_tenure}")
 
 class JobTenureShortened:
     def __init__(self, shortened_tenure:str, days: int) -> None:
         self.shortened_tenure = shortened_tenure
         self.days = days
+        Requirements.premenna +=1
+
 
 
 reasons = [
@@ -99,6 +119,10 @@ reasons = [
 requirements = Requirements(reasons=reasons)
 # print(requirements)
 requirements.list_requirements()
+
+req_1 = JobTenureProlonged(prolonged_tenure="ospravedlnená neprítomnosť zamestnanca", days=5)
+print(JobTenureProlonged.premenna) # pracuje s premennou v triede, nevolame self
+
 
 # #L7
 # for i in range(4):
