@@ -63,19 +63,17 @@ def print_user_info(result: dict) -> None:
         print(f"Error: {result['error']}")
 
 
-# username and age input
-# def input (name_input) -> str:
-
-created_users = [i for i in range(4)]
-name_input = input("Please, choose a username:")
+created_users = []
+for i in range(4):
+    name_input = input("Please, choose a username: ")
 
 try:
-    age_input = int(input("Please, enter your age:"))
+    age_input = int(input("Please, enter your age: "))
 except ValueError:
     print("The age must be a number.")
 
 
-result = create_user(user["username"], user["age"])
+result = create_user(name_input, age_input)
 created_users.append(result)
 
 
