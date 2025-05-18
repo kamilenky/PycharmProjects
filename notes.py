@@ -3,6 +3,36 @@
 
 #formatovanie CTRL+ALT+L
 
+#PY Proect 2
+#how to print list the trough loop (object: employee) and function def __str__
+class EmployeeData:
+    def __init__(self, id, name, surname, job_classification, contribution_amount_gross, contribution_amount_net):
+        self.id = id
+        self.name = name
+        self.surname = surname
+        self.job_classification = job_classification
+        self.contribution_amount_gross = contribution_amount_gross
+        self.contribution_amount_net = contribution_amount_net
+
+    # def __str__(self):
+    #    return  (f'Zamestnanec: {self.id},{self.name} {self.surname}, Pracovné zaradenie: {self.job_classification}, '
+    #             f'Príspevok: {self.contribution_amount_gross}, Príspevok po zdanení: {self.contribution_amount_net}')
+
+class EmployeeList:
+    def __init__(self, employee_list):
+        self.employee_list = employee_list
+
+
+
+    def return_employee_data(self):
+        for employee in self.employee_list:
+           print(f'Zamestnanec: {employee.id},{employee.name} {employee.surname}, Pracovné zaradenie: {employee.job_classification}, '
+                f'Príspevok: {employee.contribution_amount_gross}, Príspevok po zdanení: {employee.contribution_amount_net}')
+
+    # def return_employee_data(self):
+    #     for employee in self.employee_list:
+    #        print(employee)
+
 # # L17
 # numebers = [1,2,3]
 # odd_nr = []
