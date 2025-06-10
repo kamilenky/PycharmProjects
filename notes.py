@@ -4,6 +4,8 @@
 #formatovanie CTRL+ALT+L
 
 #PY Proect 2
+
+
 #how to print list the trough loop (object: employee) and function def __str__
 class EmployeeData:
     def __init__(self, id, name, surname, job_classification, contribution_amount_gross, contribution_amount_net):
@@ -32,6 +34,36 @@ class EmployeeList:
     # def return_employee_data(self):
     #     for employee in self.employee_list:
     #        print(employee)
+
+
+# L
+# work with text files, csv
+try:
+    f = open ("text.txt", "r")
+    result = f.read()
+    print(result)
+    f.close()
+except FileNotFoundError as e:
+#     print("chyba read")
+
+
+try:
+    g = open("text.txt", "a")
+    g.writelines(["n\bla", "n\bla"])
+    g.close()
+except FileNotFoundError as e:
+    print("chyba write")
+
+
+with open("text.txt","a") as my_file:
+    my_file.writelines(["bla","..."])
+
+
+import pandas as pd
+
+df_emloyees_listpan = pd.read_csv("employees..csv")
+
+
 
 # # L17
 # numebers = [1,2,3]
